@@ -3,7 +3,7 @@ import anthropic
 from utils import call_api, format_plan_json
 import argparse
 import json
-from lit_review_tools import parse_and_execute, format_papers_for_printing, print_top_papers_from_paper_bank, dedup_paper_bank
+from lit_review_tools_1 import parse_and_execute, format_papers_for_printing, print_top_papers_from_paper_bank, dedup_paper_bank
 from utils import cache_output
 import os
 import retry
@@ -21,7 +21,7 @@ def initial_search(topic_description, openai_client, model, seed, mode="topic", 
     prompt += "Formulate your query as: KeywordQuery(\"keyword\"). Just give me one query, with the most important keyword, the keyword can be a concatenation of multiple keywords (just put a space between every word) but please be concise and try to cover all the main aspects.\n"
     prompt += "Your query (just return the query itself with no additional text):"
     prompt_messages = [{"role": "user", "content": prompt}]
-    response, cost = call_api(openai_client, model, prompt_messages, temperature=0., max_tokens=100, seed=seed, json_output=False)
+    response, cost = call_api(openai_client, model, prompt_messages, temperature=0.1, max_tokens=100, seed=seed, json_output=False)
     
     return prompt, response, cost
 
@@ -43,7 +43,7 @@ def next_query(topic_description, openai_client, model, seed, grounding_papers, 
     prompt += "Please formulate a new query to expand our paper collection with more diverse and relevant papers (you can do so by diversifying the types of queries to generate and minimize the overlap with previous queries). Directly give me your new query without any explanation or additional text, just the query itself:"
     
     prompt_messages = [{"role": "user", "content": prompt}]
-    response, cost = call_api(openai_client, model, prompt_messages, temperature=0., max_tokens=100, seed=seed, json_output=False)
+    response, cost = call_api(openai_client, model, prompt_messages, temperature=0.1, max_tokens=100, seed=seed, json_output=False)
 
     return prompt, response, cost
 
@@ -199,7 +199,7 @@ if __name__ == "__main__":
         )
     else:
         client = OpenAI(
-            organization=ORG_ID,
+            #organization=ORG_ID,
             api_key=OAI_KEY
         )
 
@@ -224,5 +224,3 @@ if __name__ == "__main__":
             os.makedirs(cache_dir)
         output_dict = {"topic_description": args.topic_description, "all_queries": all_queries, "paper_bank": paper_bank}
         cache_output(output_dict, args.cache_name)
-
-

@@ -4,7 +4,7 @@ from utils import call_api, shuffle_dict_and_convert_to_string
 import argparse
 import json
 import os
-from lit_review_tools import format_papers_for_printing
+from lit_review_tools_1 import format_papers_for_printing
 from utils import cache_output
 import random 
 import retry
