@@ -1,11 +1,8 @@
 ## example usage
 python3 src/lit_review.py \
- --engine "claude-3-5-sonnet-20240620" \
+ --engine "gpt-4o" \
  --mode "topic" \
- --topic_description "novel prompting methods that can improve factuality and reduce hallucination of large language models" \
- --cache_name "../cache_results_test/lit_review/factuality_prompting_method.json" \
- --max_paper_bank_size 50 \
+ --topic_description "How does Big Tech companies disrupt AI research and development? What do regulators need to learn about AI?" \
+ --cache_name "../cache_results_test/lit_review/bigtech.json" \
+ --max_paper_bank_size 30 \
  --print_all
-
-
-

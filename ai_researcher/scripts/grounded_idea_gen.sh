@@ -1,5 +1,5 @@
 ## example usage
-topic_names=("factuality_prompting_method")
+topic_names=("bigtech")
 ideas_n=5 ## batch size
 methods=("prompting")
 rag_values=("True" "False")

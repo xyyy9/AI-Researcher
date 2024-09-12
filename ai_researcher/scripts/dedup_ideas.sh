@@ -1,6 +1,6 @@
 ## example usage
 cache_dir="../cache_results_test/seed_ideas/"
-cache_names=("factuality_prompting_method")
+cache_names=("bigtech")
 
 for cache_name in "${cache_names[@]}"; do
     echo "Running analyze_ideas_semantic_similarity.py with cache_name: $cache_name"

@@ -1,7 +1,7 @@
 ## example usage
 idea_cache_dir="../cache_results_test/ideas_dedup/"
 project_proposal_cache_dir="../cache_results_test/project_proposals/"
-cache_names=("factuality_prompting_method")
+cache_names=("bigtech")
 seed=2024
 
 for cache_name in "${cache_names[@]}"; do

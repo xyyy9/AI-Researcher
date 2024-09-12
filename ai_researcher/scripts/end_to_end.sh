@@ -1,5 +1,6 @@
 ## example usage
 # literature review
+# modify the topic description to match the topic you are interested in, and the cache_name to save the results
 python3 src/lit_review.py \
  --engine "claude-3-5-sonnet-20240620" \
  --mode "topic" \
